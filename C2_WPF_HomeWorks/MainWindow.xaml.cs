@@ -20,9 +20,41 @@ namespace C2_WPF_HomeWorks
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// List of Departments
+        /// </summary>
+        // private Company _company;
+        private List<Department> _company;
+
+        private Random rnd = new Random();
+
+        /// <summary>
+        /// Method Click on btnLoad
+        /// </summary>
+        private void btnLoad_Click()
+        {
+            // _company = new Company();
+            _company = new List<Department>();
+            _company.Add(new Department("IT", 1));
+            _company.Add(new Department("Accounting", 2));
+            _company.Add(new Department("Sales", 3));
+            _company.Add(new Department("Administration", 4));
+
+            foreach (var department in _company)
+            {
+                MessageBox.Show(department.Name.ToString());
+            }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
+
+            btnLoad.Click += delegate
+            {
+                btnLoad_Click();
+            };
         }
     }
 }

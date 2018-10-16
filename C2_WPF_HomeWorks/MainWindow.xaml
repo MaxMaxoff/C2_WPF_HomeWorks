@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lbxDepartments" Background="Aqua" Grid.Column="0"/>
+        <ListBox x:Name="lbxEmployees" Background="Aquamarine" Grid.Column="1"/>
+        <StackPanel Grid.Column="2">
+            <Button x:Name="btnLoad"
+                    Height="30"
+                    Margin="5"
+                    Content="Load">
+            </Button>
+            <Button x:Name="btnSort"
+                    Height="30"
+                    Margin="5"
+                    Content="Sort">
+            </Button>
+
+
+
+
+        </StackPanel>
+
     </Grid>
 </Window>
