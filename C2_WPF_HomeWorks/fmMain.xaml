@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C2_WPF_HomeWorks"
         mc:Ignorable="d"
-        Title="Main Window" Height="480" Width="1024">
+        Title="Main Window" Height="480" Width="1024" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30*"/>
