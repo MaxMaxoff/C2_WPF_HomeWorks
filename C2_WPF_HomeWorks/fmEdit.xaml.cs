@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace C2_WPF_HomeWorks
 {
@@ -22,6 +11,9 @@ namespace C2_WPF_HomeWorks
         public int DepartmentID = -1;
         public int EmployeeID = -1;
 
+        /// <summary>
+        /// Method on Event
+        /// </summary>
         private void btnSave_Click()
         {
             if (EmployeeID == -1)
@@ -42,6 +34,9 @@ namespace C2_WPF_HomeWorks
             this.Close();
         }
 
+        /// <summary>
+        /// Method change department
+        /// </summary>
         private void ChangeDepartment()
         {
             fmMain._company[cbDepartment.SelectedIndex].Add(fmMain._company[DepartmentID].Employees[EmployeeID]);
