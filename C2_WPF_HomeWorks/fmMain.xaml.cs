@@ -53,8 +53,7 @@ namespace C2_WPF_HomeWorks
         /// </summary>
         private void lbxDepartment_SelectItem()
         {
-            lbxEmployees.ItemsSource = null;
-            lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
+            UpdateLbxEmployees();
         }
 
         /// <summary>
