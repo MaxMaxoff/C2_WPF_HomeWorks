@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace C2_WPF_HomeWorks
 {
     /// <summary>
     /// Employee Class
     /// </summary>
-    public abstract class Employee : IComparable<Employee>
+    public class Employee : IComparable<Employee>
     {
         /// <summary>
         /// Properties Name
@@ -52,23 +48,13 @@ namespace C2_WPF_HomeWorks
         public int Salary { get; set; }
 
         /// <summary>
-        /// Abstract Method FixSalary
+        /// Method CompareTo
         /// </summary>
-        /// <returns>Total Salary depends on type of Employee</returns>
-        public abstract float MonthlySalary();
-
-        /// <summary>
-        /// Override Method ToString
-        /// </summary>
-        /// <returns>Default string for Employee</returns>
-        public override string ToString()
-        {
-            return $"Имя: {Name}; ТН {Number}; Должность: {Position}; ЗП: {MonthlySalary()}";
-        }
-
+        /// <param name="obj">Employee</param>
+        /// <returns>-1 or 1</returns>
         public int CompareTo(Employee obj)
         {
-            return MonthlySalary() > obj.MonthlySalary() ? -1 : 1;
+            return Salary > obj.Salary ? -1 : 1;
         }
 
         /// <summary>
@@ -84,6 +70,15 @@ namespace C2_WPF_HomeWorks
             Number = number;
             Position = position;
             Salary = salary;
+        }
+
+        /// <summary>
+        /// Override Method ToString
+        /// </summary>
+        /// <returns>Default string for Employee</returns>
+        public override string ToString()
+        {
+            return $"Имя: {Name}; ТН {Number}; Должность: {Position}; ЗП: {Salary}";
         }
     }
 }

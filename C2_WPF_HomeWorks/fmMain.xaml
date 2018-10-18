@@ -1,35 +1,33 @@
-﻿<Window x:Class="C2_WPF_HomeWorks.MainWindow"
+﻿<Window x:Class="C2_WPF_HomeWorks.fmMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C2_WPF_HomeWorks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Main Window" Height="480" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="lbxDepartments" Background="Aqua" Grid.Column="0"/>
-        <ListBox x:Name="lbxEmployees" Background="Aquamarine" Grid.Column="1"/>
+        <ListBox x:Name="lbxDepartments"
+                 Background="Aqua"
+                 Grid.Column="0"/>
+        <ListBox x:Name="lbxEmployees"
+                 Background="Aquamarine"
+                 Grid.Column="1"
+                 MouseDoubleClick="LbxEmployees_OnMouseDoubleClick"/>
         <StackPanel Grid.Column="2">
             <Button x:Name="btnLoad"
                     Height="30"
                     Margin="5"
-                    Content="Load">
-            </Button>
+                    Content="Load"/>
             <Button x:Name="btnSort"
                     Height="30"
                     Margin="5"
-                    Content="Sort">
-            </Button>
-
-
-
-
+                    Content="Sort"/>
         </StackPanel>
-
     </Grid>
 </Window>
