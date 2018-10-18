@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C2_WPF_HomeWorks"
         mc:Ignorable="d"
-        Title="fmEdit" Height="450" Width="800">
-    <Grid>
-        
+        Title="Edit form" Height="182.231" Width="213.637">
+    <Grid Margin="0,0,2,-21">
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,18,0,0" TextWrapping="Wrap" Text="ФИО" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="79,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,39,0,0" TextWrapping="Wrap" Text="ТН" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="23" Margin="79,52,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSalary" HorizontalAlignment="Left" Height="23" Margin="79,73,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Оклад" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" Text="Отдел" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="79,96,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button x:Name="btnSave" Content="Сохранить" HorizontalAlignment="Left" Margin="124,123,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

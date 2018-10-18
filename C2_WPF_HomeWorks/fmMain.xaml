@@ -24,10 +24,14 @@
                     Height="30"
                     Margin="5"
                     Content="Load"/>
-            <Button x:Name="btnSort"
+            <Button x:Name="btnEdit"
                     Height="30"
                     Margin="5"
-                    Content="Sort"/>
+                    Content="Edit"/>
+            <Button x:Name="btnNew"
+                Height="30"
+                Margin="5"
+                Content="New"/>
         </StackPanel>
     </Grid>
 </Window>

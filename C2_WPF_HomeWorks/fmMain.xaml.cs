@@ -13,7 +13,7 @@ namespace C2_WPF_HomeWorks
         /// <summary>
         /// List of Departments
         /// </summary>
-        private List<Department> _company;
+        public static List<Department> _company;
         
         private Random rnd = new Random();
 
@@ -65,9 +65,55 @@ namespace C2_WPF_HomeWorks
 
         }
 
-        private void ChangeDepartment()
+        public void UpdateLbxEmployees()
         {
-            // _company[]
+            lbxEmployees.ItemsSource = null;
+            lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
+        }
+
+        /// <summary>
+        /// Method Edit Employee
+        /// </summary>
+        private void btnEdit_Click()
+        {
+            try
+            {
+                fmEdit form = new fmEdit();
+                form.DepartmentID = lbxDepartments.SelectedIndex;
+                form.EmployeeID = lbxEmployees.SelectedIndex;
+                form.tbName.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Name;
+                form.tbNumber.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Number.ToString();
+                form.tbPosition.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Position;
+                form.tbSalary.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Salary.ToString();
+                form.cbDepartment.ItemsSource = _company;
+                form.cbDepartment.SelectedIndex = lbxDepartments.SelectedIndex;
+                form.Show();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Не выбран сотрудник!");
+                //Console.WriteLine(e);
+                //throw;
+            }
+        }
+
+        /// <summary>
+        /// Method new employee
+        /// </summary>
+        private void btnNew_Click()
+        {
+            try
+            {
+                fmEdit form = new fmEdit();
+                form.cbDepartment.ItemsSource = _company;
+                form.Show();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Не выбран сотрудник!");
+                //Console.WriteLine(e);
+                //throw;
+            }
         }
 
         public fmMain()
@@ -80,9 +126,10 @@ namespace C2_WPF_HomeWorks
 
             // lbxEmployees.SelectionChanged += delegate { lbxEmployees_SelectItem(); };
 
-            // lbxEmployees.MouseDoubleClick += delegate { LbxEmployees_OnMouseDoubleClick(object, new MouseButtonEventArgs()); };
+            btnEdit.Click += delegate { btnEdit_Click(); };
+            
+            btnNew.Click += delegate { btnNew_Click(); };
 
-            // lbxEmployees.dra
         }
 
         private void LbxEmployees_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
