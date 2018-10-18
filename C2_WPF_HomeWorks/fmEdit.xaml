@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C2_WPF_HomeWorks"
         mc:Ignorable="d"
-        Title="Edit form" Height="182.231" Width="213.637">
-    <Grid Margin="0,0,2,-21">
+        Title="Edit form" Height="194.628" Width="226.034">
+    <Grid Margin="0,0,-8,-21">
         <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,18,0,0" TextWrapping="Wrap" Text="ФИО" VerticalAlignment="Top"/>
         <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="79,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>

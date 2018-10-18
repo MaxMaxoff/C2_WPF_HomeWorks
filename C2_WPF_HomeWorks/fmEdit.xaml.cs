@@ -32,7 +32,6 @@ namespace C2_WPF_HomeWorks
             fmMain._company[DepartmentID].Employees[EmployeeID].Position = tbPosition.Text;
             fmMain._company[DepartmentID].Employees[EmployeeID].Salary = Convert.ToInt32(tbSalary.Text);
             
-            // this.OnClosing();
             this.Close();
             
         }

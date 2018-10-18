@@ -56,15 +56,10 @@ namespace C2_WPF_HomeWorks
             lbxEmployees.ItemsSource = null;
             lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
         }
-
+        
         /// <summary>
-        /// Method Select Item in lbxEmployees
+        /// Method Update listbox Employees
         /// </summary>
-        private void lbxEmployees_SelectItem()
-        {
-
-        }
-
         public void UpdateLbxEmployees()
         {
             lbxEmployees.ItemsSource = null;
@@ -87,6 +82,7 @@ namespace C2_WPF_HomeWorks
                 form.tbSalary.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Salary.ToString();
                 form.cbDepartment.ItemsSource = _company;
                 form.cbDepartment.SelectedIndex = lbxDepartments.SelectedIndex;
+
                 form.Show();
             }
             catch (Exception e)
@@ -107,6 +103,8 @@ namespace C2_WPF_HomeWorks
                 fmEdit form = new fmEdit();
                 form.cbDepartment.ItemsSource = _company;
                 form.Show();
+
+                form.Closed += delegate { UpdateLbxEmployees(); };
             }
             catch (Exception e)
             {
@@ -124,17 +122,19 @@ namespace C2_WPF_HomeWorks
 
             lbxDepartments.SelectionChanged += delegate { lbxDepartment_SelectItem(); };
 
-            // lbxEmployees.SelectionChanged += delegate { lbxEmployees_SelectItem(); };
-
             btnEdit.Click += delegate { btnEdit_Click(); };
-            
             btnNew.Click += delegate { btnNew_Click(); };
-
         }
 
+        /// <summary>
+        /// Method on Event OnMouseDoubleClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LbxEmployees_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Double Click");
+            btnEdit_Click();
+            // MessageBox.Show("Double Click");
         }
     }
 }
