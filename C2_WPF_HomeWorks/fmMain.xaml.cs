@@ -75,6 +75,26 @@ namespace C2_WPF_HomeWorks
         }
 
         /// <summary>
+        /// Method Update listbox Department
+        /// </summary>
+        private void UpdateLbxDepartment()
+        {
+            {
+                try
+                {
+                    lbxDepartments.ItemsSource = null;
+                    lbxDepartments.ItemsSource = _company;
+                }
+                catch (Exception e)
+                {
+                    //Console.WriteLine(e);
+                    //throw;
+                }
+
+            }
+        }
+
+        /// <summary>
         /// Method Edit Employee
         /// </summary>
         private void btnEdit_Click()
@@ -108,7 +128,7 @@ namespace C2_WPF_HomeWorks
         /// <summary>
         /// Method new employee
         /// </summary>
-        private void btnNew_Click()
+        private void btnNewEmp_Click()
         {
             try
             {
@@ -131,6 +151,39 @@ namespace C2_WPF_HomeWorks
             }
         }
 
+        /// <summary>
+        /// Method new Department
+        /// </summary>
+        private void btnDep_Click()
+        {
+            if (_company is null)
+                LoadData();
+
+            try
+            {
+                fmDep form = new fmDep();
+
+                form.DepartmentID = lbxDepartments.SelectedIndex;
+
+                form.tbName.Text = _company[lbxDepartments.SelectedIndex].Name;
+                form.tbNumber.Text = _company[lbxDepartments.SelectedIndex].Number.ToString();
+
+                // form.Closing += delegate { UpdateLbxDepartment(); };
+                form.Closed += delegate { UpdateLbxDepartment(); };
+                form.Show();
+            }
+            catch (Exception e)
+            {
+                fmDep form = new fmDep();
+
+                form.DepartmentID = lbxDepartments.SelectedIndex;
+
+                // form.Closing += delegate { UpdateLbxDepartment(); };
+                form.Closed += delegate { UpdateLbxDepartment(); };
+                form.Show();
+            }
+        }
+
         public fmMain()
         {
             InitializeComponent();
@@ -140,7 +193,8 @@ namespace C2_WPF_HomeWorks
             lbxDepartments.SelectionChanged += delegate { lbxDepartment_SelectItem(); };
 
             btnEdit.Click += delegate { btnEdit_Click(); };
-            btnNew.Click += delegate { btnNew_Click(); };
+            btnNewEmp.Click += delegate { btnNewEmp_Click(); };
+            btnDep.Click += delegate { btnDep_Click(); };
         }
 
         /// <summary>
@@ -152,6 +206,11 @@ namespace C2_WPF_HomeWorks
         {
             btnEdit_Click();
             // MessageBox.Show("Double Click");
+        }
+
+        private void LbxDepartment_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            btnDep_Click();
         }
     }
 }

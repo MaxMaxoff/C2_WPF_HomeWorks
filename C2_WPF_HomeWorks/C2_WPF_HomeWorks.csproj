@@ -55,7 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="fmDep.xaml.cs">
+      <DependentUpon>fmDep.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToSQL.cs" />
+    <Page Include="fmDep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="fmEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

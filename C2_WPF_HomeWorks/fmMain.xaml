@@ -14,7 +14,8 @@
         </Grid.ColumnDefinitions>
         <ListBox x:Name="lbxDepartments"
                  Background="Aqua"
-                 Grid.Column="0"/>
+                 Grid.Column="0"
+                 MouseDoubleClick="LbxDepartment_OnMouseDoubleClick"/>
         <ListBox x:Name="lbxEmployees"
                  Background="Aquamarine"
                  Grid.Column="1"
@@ -28,10 +29,14 @@
                     Height="30"
                     Margin="5"
                     Content="Edit"/>
-            <Button x:Name="btnNew"
+            <Button x:Name="btnDep"
+                    Height="30"
+                    Margin="5"
+                    Content="Department"/>
+            <Button x:Name="btnNewEmp"
                 Height="30"
                 Margin="5"
-                Content="New"/>
+                Content="New Employee"/>
         </StackPanel>
     </Grid>
 </Window>
