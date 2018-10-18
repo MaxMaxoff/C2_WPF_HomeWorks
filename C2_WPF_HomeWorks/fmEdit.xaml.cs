@@ -27,13 +27,19 @@ namespace C2_WPF_HomeWorks
             if (cbDepartment.SelectedIndex != DepartmentID && DepartmentID != -1)
                 ChangeDepartment();
 
-            fmMain._company[DepartmentID].Employees[EmployeeID].Name = tbName.Text;
-            fmMain._company[DepartmentID].Employees[EmployeeID].Number = Convert.ToInt32(tbNumber.Text);
-            fmMain._company[DepartmentID].Employees[EmployeeID].Position = tbPosition.Text;
-            fmMain._company[DepartmentID].Employees[EmployeeID].Salary = Convert.ToInt32(tbSalary.Text);
-            
+            if (DepartmentID == -1)
+            {
+                fmMain._company[cbDepartment.SelectedIndex].Add(new Employee($"{tbName.Text}", Convert.ToInt32(tbNumber.Text), $"{tbPosition.Text}", Convert.ToInt32(tbSalary.Text)));
+            }
+            else
+            {
+                fmMain._company[DepartmentID].Employees[EmployeeID].Name = tbName.Text;
+                fmMain._company[DepartmentID].Employees[EmployeeID].Number = Convert.ToInt32(tbNumber.Text);
+                fmMain._company[DepartmentID].Employees[EmployeeID].Position = tbPosition.Text;
+                fmMain._company[DepartmentID].Employees[EmployeeID].Salary = Convert.ToInt32(tbSalary.Text);                
+            }
+
             this.Close();
-            
         }
 
         private void ChangeDepartment()

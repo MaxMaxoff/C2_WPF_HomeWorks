@@ -56,14 +56,23 @@ namespace C2_WPF_HomeWorks
             lbxEmployees.ItemsSource = null;
             lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
         }
-        
+
         /// <summary>
         /// Method Update listbox Employees
         /// </summary>
-        public void UpdateLbxEmployees()
+        private void UpdateLbxEmployees()
         {
-            lbxEmployees.ItemsSource = null;
-            lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
+            try
+            {
+                lbxEmployees.ItemsSource = null;
+                lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                //throw;
+            }
+
         }
 
         /// <summary>
@@ -83,6 +92,8 @@ namespace C2_WPF_HomeWorks
                 form.cbDepartment.ItemsSource = _company;
                 form.cbDepartment.SelectedIndex = lbxDepartments.SelectedIndex;
 
+                // form.Closing += delegate { UpdateLbxEmployees(); };
+                form.Closed += delegate { UpdateLbxEmployees(); };
                 form.Show();
             }
             catch (Exception e)
@@ -100,15 +111,20 @@ namespace C2_WPF_HomeWorks
         {
             try
             {
-                fmEdit form = new fmEdit();
-                form.cbDepartment.ItemsSource = _company;
-                form.Show();
+                if (lbxDepartments.SelectedIndex > -1)
+                {
+                    fmEdit form = new fmEdit();
+                    form.cbDepartment.ItemsSource = _company;
+                    form.cbDepartment.SelectedIndex = lbxDepartments.SelectedIndex;
 
-                form.Closed += delegate { UpdateLbxEmployees(); };
+                    form.Closed += delegate { UpdateLbxEmployees(); };
+                    form.Show();
+                } else MessageBox.Show("Не выбран отдел!");
+
             }
             catch (Exception e)
             {
-                MessageBox.Show("Не выбран сотрудник!");
+                MessageBox.Show("Не выбран отдел!");
                 //Console.WriteLine(e);
                 //throw;
             }
