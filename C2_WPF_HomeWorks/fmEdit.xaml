@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Edit form" Height="194.628" Width="226.034">
     <Grid Margin="0,0,-8,-21">
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="79,10,0,0" TextWrapping="Wrap" Text="Иван" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,18,0,0" TextWrapping="Wrap" Text="ФИО" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="79,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="79,31,0,0" TextWrapping="Wrap" Text="5555" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,39,0,0" TextWrapping="Wrap" Text="ТН" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="23" Margin="79,52,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbPosition" HorizontalAlignment="Left" Height="23" Margin="79,52,0,0" TextWrapping="Wrap" Text="Начальник начальников" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSalary" HorizontalAlignment="Left" Height="23" Margin="79,73,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbSalary" HorizontalAlignment="Left" Height="23" Margin="79,73,0,0" TextWrapping="Wrap" Text="9999" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Оклад" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" Text="Отдел" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbDepartment" HorizontalAlignment="Left" Margin="79,96,0,0" VerticalAlignment="Top" Width="120"/>

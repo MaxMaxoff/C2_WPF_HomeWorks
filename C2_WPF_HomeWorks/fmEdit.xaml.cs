@@ -24,10 +24,7 @@ namespace C2_WPF_HomeWorks
 
         private void btnSave_Click()
         {
-            if (cbDepartment.SelectedIndex != DepartmentID && DepartmentID != -1)
-                ChangeDepartment();
-
-            if (DepartmentID == -1)
+            if (EmployeeID == -1)
             {
                 fmMain._company[cbDepartment.SelectedIndex].Add(new Employee($"{tbName.Text}", Convert.ToInt32(tbNumber.Text), $"{tbPosition.Text}", Convert.ToInt32(tbSalary.Text)));
             }
@@ -36,8 +33,11 @@ namespace C2_WPF_HomeWorks
                 fmMain._company[DepartmentID].Employees[EmployeeID].Name = tbName.Text;
                 fmMain._company[DepartmentID].Employees[EmployeeID].Number = Convert.ToInt32(tbNumber.Text);
                 fmMain._company[DepartmentID].Employees[EmployeeID].Position = tbPosition.Text;
-                fmMain._company[DepartmentID].Employees[EmployeeID].Salary = Convert.ToInt32(tbSalary.Text);                
+                fmMain._company[DepartmentID].Employees[EmployeeID].Salary = Convert.ToInt32(tbSalary.Text);
             }
+
+            if (cbDepartment.SelectedIndex != DepartmentID && EmployeeID != -1)
+                ChangeDepartment();
 
             this.Close();
         }

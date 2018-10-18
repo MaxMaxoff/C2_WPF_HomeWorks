@@ -83,8 +83,10 @@ namespace C2_WPF_HomeWorks
             try
             {
                 fmEdit form = new fmEdit();
+
                 form.DepartmentID = lbxDepartments.SelectedIndex;
                 form.EmployeeID = lbxEmployees.SelectedIndex;
+
                 form.tbName.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Name;
                 form.tbNumber.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Number.ToString();
                 form.tbPosition.Text = _company[lbxDepartments.SelectedIndex].Employees[lbxEmployees.SelectedIndex].Position;
