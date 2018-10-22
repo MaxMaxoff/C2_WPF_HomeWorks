@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace C2_WPF_HomeWorks
 {
@@ -8,12 +9,12 @@ namespace C2_WPF_HomeWorks
     public class Department
     {
 
-        private List<Employee> _department;
+        private ObservableCollection<Employee> _department;
 
         /// <summary>
         /// Property 
         /// </summary>
-        public List<Employee> Employees
+        public ObservableCollection<Employee> Employees
         {
             get { return _department; }
         }
@@ -33,7 +34,7 @@ namespace C2_WPF_HomeWorks
         /// </summary>
         public Department()
         {
-            _department = new List<Employee>();
+            _department = new ObservableCollection<Employee>();
         }
 
         /// <summary>
@@ -63,36 +64,6 @@ namespace C2_WPF_HomeWorks
         public void Remove(Employee employee)
         {
             _department.Remove(employee);
-        }
-
-        /// <summary>
-        /// Method Get By Number
-        /// </summary>
-        /// <param name="number">Employee number</param>
-        /// <returns>Employee</returns>
-        public Employee GetByNumber(int number)
-        {
-            return _department.Find(x => x.Number == number);
-        }
-
-        /// <summary>
-        /// Method Get By Name
-        /// </summary>
-        /// <param name="name">Employee name</param>
-        /// <returns>Employee</returns>
-        public Employee GetByName(string name)
-        {
-            return _department.Find(x => x.Name == name);
-        }
-
-        /// <summary>
-        /// Method Find By Part Of Name
-        /// </summary>
-        /// <param name="partOfName">part of Employee name</param>
-        /// <returns>list of Employees</returns>
-        public List<Employee> FindByPartOfName(string partOfName)
-        {
-            return _department.FindAll(x => x.Name.Contains(partOfName));
         }
 
         /// <summary>
