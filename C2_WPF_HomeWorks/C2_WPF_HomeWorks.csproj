@@ -55,7 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="fmDep.xaml.cs">
+      <DependentUpon>fmDep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ToSQL.cs" />
+    <Page Include="fmDep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fmEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="fmMain.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -64,10 +76,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Department.cs" />
-    <Compile Include="Company.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="fmEdit.xaml.cs">
+      <DependentUpon>fmEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="fmMain.xaml.cs">
+      <DependentUpon>fmMain.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

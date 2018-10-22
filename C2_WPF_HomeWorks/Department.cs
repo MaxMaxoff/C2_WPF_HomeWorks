@@ -1,19 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace C2_WPF_HomeWorks
 {
     /// <summary>
     /// Department Class
     /// </summary>
-    public class Department : IEnumerable
+    public class Department
     {
 
-        List<Employee> _department;
+        private List<Employee> _department;
+
+        /// <summary>
+        /// Property 
+        /// </summary>
+        public List<Employee> Employees
+        {
+            get { return _department; }
+        }
 
         /// <summary>
         /// Properties Name
@@ -59,7 +62,7 @@ namespace C2_WPF_HomeWorks
         /// <param name="employee">Employee</param>
         public void Remove(Employee employee)
         {
-            _department.RemoveAt(_department.IndexOf(employee));
+            _department.Remove(employee);
         }
 
         /// <summary>
@@ -92,9 +95,20 @@ namespace C2_WPF_HomeWorks
             return _department.FindAll(x => x.Name.Contains(partOfName));
         }
 
-        public IEnumerator GetEnumerator()
+        /// <summary>
+        /// Method Change Department for Employee
+        /// </summary>
+        /// <param name="employee">Employee</param>
+        /// <returns></returns>
+        public Employee ChangeDepartment(Employee employee)
         {
-            return ((IEnumerable)Name).GetEnumerator();
+            _department.Remove(employee);
+            return employee;
+        } 
+
+        public override string ToString()
+        {
+            return $"{Number}: {Name}";
         }
     }
 }
