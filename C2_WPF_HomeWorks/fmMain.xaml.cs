@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,7 +14,7 @@ namespace C2_WPF_HomeWorks
         /// <summary>
         /// List of Departments
         /// </summary>
-        public static List<Department> _company;
+        public static ObservableCollection<Department> _company;
         
         private Random rnd = new Random();
 
@@ -38,7 +39,7 @@ namespace C2_WPF_HomeWorks
         {
             if (_company is null)
             {
-                _company = new List<Department>();
+                _company = new ObservableCollection<Department>();
 
                 for (int j = 0; j < 4; j++)
                     _company.Add(new Department($"Department_{j}", j));
@@ -72,6 +73,8 @@ namespace C2_WPF_HomeWorks
                 form.cbDepartment.ItemsSource = _company;
                 form.cbDepartment.SelectedIndex = lbxDepartments.SelectedIndex;
 
+                form.Closed += delegate { UpdateLbxEmployees(); };
+
                 form.Show();
             }
             catch (Exception e)
@@ -95,6 +98,8 @@ namespace C2_WPF_HomeWorks
                     form.cbDepartment.ItemsSource = _company;
                     form.cbDepartment.SelectedIndex = lbxDepartments.SelectedIndex;
 
+                    form.Closed += delegate { UpdateLbxEmployees(); };
+
                     form.Show();
                 } else MessageBox.Show("Не выбран отдел!");
 
@@ -108,12 +113,51 @@ namespace C2_WPF_HomeWorks
         }
 
         /// <summary>
+        /// Method Update listbox Department
+        /// </summary>
+        private void UpdateLbxDepartment()
+        {
+            {
+                try
+                {
+                    lbxDepartments.ItemsSource = null;
+                    lbxDepartments.ItemsSource = _company;
+                }
+                catch (Exception e)
+                {
+                    //Console.WriteLine(e);
+                    //throw;
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Method Update listbox Employees
+        /// </summary>
+        private void UpdateLbxEmployees()
+        {
+            try
+            {
+                lbxEmployees.ItemsSource = null;
+                lbxEmployees.ItemsSource = _company[lbxDepartments.SelectedIndex].Employees;
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                //throw;
+            }
+
+        }
+
+        /// <summary>
         /// Method new Department
         /// </summary>
         private void btnDep_Click()
         {
             if (_company is null)
-                LoadData();
+                btnLoad_Click();
+                //LoadData();
 
             try
             {
@@ -123,6 +167,8 @@ namespace C2_WPF_HomeWorks
 
                 form.tbName.Text = _company[lbxDepartments.SelectedIndex].Name;
                 form.tbNumber.Text = _company[lbxDepartments.SelectedIndex].Number.ToString();
+                
+                form.Closed += delegate{UpdateLbxDepartment();};
 
                 form.Show();
             }
